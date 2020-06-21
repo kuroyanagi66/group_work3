@@ -6,6 +6,8 @@
 //  Copyright © 2020 kute. All rights reserved.
 //
 
+//http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/send_api.php?user_id=2&pass=55itolab!!&message=test&parent_id=0
+//送信用↑↑
 
 import SwiftUI
 import Foundation
@@ -21,19 +23,25 @@ struct display1: View {
     @ObservedObject var store = FollowingUserStore(moji2:Login_text().lonin_text1) //Login_text().lonin_text1)
     @State var inputText: String  = ""
     @State var isActiveSubView = false
-    @ObservedObject var locationObserver = LocationObserver()
+    @State var sousinn1 = "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/send_api.php?user_id="
+    
+    @State var sousinn2 = "&pass=55itolab!!&message="
+    @State var sousinn3 = "&parent_id=0"
+    @State var sousinn_text = ""
+  // @ObservedObject var locationObserver = LocationObserver()
 
     
     var body: some View {
         NavigationView{
-           
+            
+            
+          
         VStack{
     
 //Text(self.login_text.lonin_text1)
 //Text(self.login_text.login_id_kioku)
-            
-            
            // Text(self.login_text.lonin_text1)
+            
            List(store.users) { (user) in
             //ForEach(store.users){ user in
              // UserRow(user: user)
@@ -45,12 +53,11 @@ struct display1: View {
                     
                 }else{
                     UserRow2(user: user)
-                    
                 }
             }
             
-            
             HStack{
+                
                 NavigationLink(destination: MapTest()) {
                                                EmptyView()
                                }.sheet(isPresented: $isActiveSubView) {
@@ -70,17 +77,51 @@ struct display1: View {
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .frame(maxWidth: 280)
                 
-                Button(action:{self.inputText=""}){
+                Button(action:{
+                    
+                    self.sousinn_text = self.sousinn1
+                        + self.login_text.login_id_kioku + self.sousinn2 + self.inputText + self.sousinn3
+                    
+                    
+                    
+                    let encodeUrlString = self.sousinn_text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                    
+                    let url_: URL = URL(string:encodeUrlString)!
+                    let request = URLRequest(url: url_)
+                    
+                    
+                    
+                  //  UIApplication.shared.open(url_)
+                    print(request)
+                    
+                    
+                ////////////
+            let task: URLSessionTask = URLSession.shared.dataTask(with: url_, completionHandler: {(data, response, error) in                
+            })
+                    task.resume()
+                    //////////////
+
+                    
+                    self.inputText=""
+                }){
                 Image(systemName: "paperplane").resizable()
                 .frame(width: 20.0, height: 20.0, alignment: .leading)
             }
             }
+            Text(self.sousinn_text)
+                    
         }.navigationBarTitle("")
         .navigationBarHidden(true)
-    }
+            
+            
+            
+            
+            
+            
+    
 }
 
-
+    }
 struct UserRow: View {
     var user: User
     var body: some View {
@@ -156,6 +197,7 @@ struct UserRow: View {
     
 }
 struct display1_Previews: PreviewProvider {
+ 
     static let login_text = Login_text()
     static var previews: some View {
         display1().environmentObject(login_text)

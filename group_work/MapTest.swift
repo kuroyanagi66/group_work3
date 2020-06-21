@@ -2,7 +2,7 @@ import SwiftUI
 import MapKit
 
 struct MapTest: View {
-    @ObservedObject var locationObserver = LocationObserver()
+    //@ObservedObject var locationObserver = LocationObserver()
     var body: some View {
         VStack{
             Text("　")

@@ -10,7 +10,6 @@ class FollowingUserStore: ObservableObject {
     init(moji2:String) {
         load(moji: moji2)
     }
-
     func load(moji : String) {
        // let url_text = self.login_text.lonin_text1
         //let url = URL(string: moji)!

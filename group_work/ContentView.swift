@@ -27,7 +27,7 @@ struct ContentView: View {
     @State var login_kyoka = 0
     @State var url_1 = "tem"
     @State var encodeUrlString = "s"
-    @ObservedObject var locationObserver = LocationObserver()
+   // @ObservedObject var locationObserver = LocationObserver()
     @State var login_user1: [LoginUser] = []
 
    // @ObservedObject var user_login = FollowingUserStore2()
@@ -125,17 +125,9 @@ struct ContentView: View {
                                         JSONDecoder().decode([LoginUser].self, from: data!)
                                // }
                                 
-                                
-                       
-                               
                                 print(self.login_user1[0].user_id)
                                 self.login_text.login_id_kioku = self.login_user1[0].user_id
-                              // UserRow3(user: self.login_user1)
-                               
-                   //     let store2 = FollowingUserStore2()
-                                
-    
-                                
+                            
                             self.isActiveSubView.toggle()
                                 
                                 
