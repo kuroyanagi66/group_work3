@@ -52,3 +52,32 @@ struct File_Previews: PreviewProvider {
     }
 }
 
+
+
+/*
+class FollowingUserStore2: ObservableObject {
+    @Published var login_user: [LoginUser] = []
+    @EnvironmentObject var login_text: Login_text
+    
+
+    init() {
+        load()
+    }
+
+    func load() {
+        let url_text = self.login_text.lonin_url1
+        let url = URL(string: url_text)!
+            //let url = URL(string: "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/talk_api.php?name=hijiri&pass=55itolab!!")!
+
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            DispatchQueue.main.async {
+                self.login_user = try!
+                    
+                    JSONDecoder().decode([LoginUser].self, from: data!)
+            }
+        }.resume()
+
+    }
+}*/
+

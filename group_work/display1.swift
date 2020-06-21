@@ -28,7 +28,10 @@ struct display1: View {
         NavigationView{
            
         VStack{
+    
 //Text(self.login_text.lonin_text1)
+//Text(self.login_text.login_id_kioku)
+            
             
            // Text(self.login_text.lonin_text1)
            List(store.users) { (user) in
