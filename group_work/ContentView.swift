@@ -71,7 +71,8 @@ struct ContentView: View {
                     }
                     .frame(height: 200)
 
-                    NavigationLink(destination: display1().environmentObject(login_text)
+                    NavigationLink(destination: //display1().environmentObject(login_text)
+                        display_tab().environmentObject(login_text)
                         ,isActive: $isActiveSubView
                     ) {
                                     EmptyView()

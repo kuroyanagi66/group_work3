@@ -1,10 +1,68 @@
+
+//
+//  MapView.swift
+//  LocationObserverTest
+//
+//  Created by Daisuke TONOSAKI on 2019/10/14.
+//  Copyright © 2019 Daisuke TONOSAKI. All rights reserved.
+//
+
+import SwiftUI
+import MapKit
+
+struct MapView: UIViewRepresentable {
+  var coordinate: CLLocationCoordinate2D
+    @ObservedObject var locationObserver = LocationObserver()
+  
+  func makeUIView(context: Context) -> MKMapView {
+  
+ 
+    MKMapView(frame: .zero)
+    
+  }
+  
+  func updateUIView(_ view: MKMapView, context: Context) {
+
+    let coordinate = self.locationObserver.location.coordinate
+    let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+    let region = MKCoordinateRegion(center: coordinate, span: span)
+    view.setRegion(region, animated: true)
+    view.removeAnnotations(view.annotations)
+    
+    let annotation = MKPointAnnotation()
+    annotation.coordinate = coordinate
+    view.addAnnotation(annotation)
+    
+    
+    /*
+    let coordinate2 = CLLocationCoordinate2DMake(34.90408631044897, 138.3713600122716)
+      let annotation2 = MKPointAnnotation()
+       let span2 = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+       let region2 = MKCoordinateRegion(center: coordinate2, span: span2)
+
+       annotation2.coordinate = coordinate2
+    
+       view.addAnnotation(annotation2)
+       view.setRegion(region2, animated: true)*/
+    
+  }
+}
+
+struct MapView_Previews: PreviewProvider {
+  static var previews: some View {
+    MapView(coordinate: CLLocationCoordinate2DMake(34.90408631044897, 138.1713600122716))
+  }
+}
+
+/*
 import SwiftUI
 import MapKit
 
 struct MapTest: View {
-    //@ObservedObject var locationObserver = LocationObserver()
+    @ObservedObject var locationObserver = LocationObserver()
     var body: some View {
         VStack{
+         
             Text("　")
         MapView()
             .edgesIgnoringSafeArea(.all)
@@ -18,6 +76,8 @@ struct MapView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: MKMapView, context: Context) {
+        
+   
         let coordinate = CLLocationCoordinate2D(
             latitude: 35.655164046, longitude: 139.740663704)
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
@@ -51,3 +111,4 @@ struct MapTest_Previews: PreviewProvider {
         MapTest()
     }
 }
+*/

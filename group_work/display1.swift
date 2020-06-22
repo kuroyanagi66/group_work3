@@ -9,6 +9,8 @@
 //http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/send_api.php?user_id=2&pass=55itolab!!&message=test&parent_id=0
 //送信用↑↑
 
+//
+
 import SwiftUI
 import Foundation
 import CoreLocation
@@ -28,21 +30,23 @@ struct display1: View {
     @State var sousinn2 = "&pass=55itolab!!&message="
     @State var sousinn3 = "&parent_id=0"
     @State var sousinn_text = ""
-  // @ObservedObject var locationObserver = LocationObserver()
+   @ObservedObject var locationObserver = LocationObserver()
+    @State private var selection = 1
 
     
     var body: some View {
+        
+      
         NavigationView{
             
-            
-          
+        
         VStack{
     
 //Text(self.login_text.lonin_text1)
 //Text(self.login_text.login_id_kioku)
            // Text(self.login_text.lonin_text1)
-            
-           List(store.users) { (user) in
+        
+         List(store.users) { (user) in
             //ForEach(store.users){ user in
              // UserRow(user: user)
                 
@@ -58,12 +62,14 @@ struct display1: View {
             
             HStack{
                 
-                NavigationLink(destination: MapTest()) {
-                                               EmptyView()
-                               }.sheet(isPresented: $isActiveSubView) {
-                                   MapTest()
+                NavigationLink(destination: display_test() ,isActive: $isActiveSubView ) {
+                                               EmptyView().environmentObject(self.login_text)
                                }
-                
+             /*   .sheet(isPresented: $isActiveSubView) {
+                                MapView(coordinate: self.locationObserver.location.coordinate)
+                                //.environmentObject(self.login_text)
+                               }
+                */
                 
                 
                    Button(action:{
@@ -72,6 +78,15 @@ struct display1: View {
                     Image(systemName: "map").resizable()
                     .frame(width: 20.0, height: 20.0, alignment: .leading)
                 }
+                
+                Button(action:{
+
+
+
+                            }){
+                             Image(systemName: "arrow.clockwise.circle").resizable()
+                             .frame(width: 20.0, height: 20.0, alignment: .leading)
+                         }
                 
             TextField("message", text: $inputText)
             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -94,13 +109,13 @@ struct display1: View {
                   //  UIApplication.shared.open(url_)
                     print(request)
                     
-                    
+                    if self.inputText != ""{
                 ////////////
-            let task: URLSessionTask = URLSession.shared.dataTask(with: url_, completionHandler: {(data, response, error) in                
+            let task: URLSessionTask = URLSession.shared.dataTask(with: url_, completionHandler: {(data, response, error) in
             })
                     task.resume()
                     //////////////
-
+                    }
                     
                     self.inputText=""
                 }){
@@ -108,9 +123,10 @@ struct display1: View {
                 .frame(width: 20.0, height: 20.0, alignment: .leading)
             }
             }
-            Text(self.sousinn_text)
+         //   Text(self.sousinn_text)
+            
                     
-        }.navigationBarTitle("")
+        }.navigationBarTitle("ss")
         .navigationBarHidden(true)
             
             

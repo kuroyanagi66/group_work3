@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D57AF546249F6DFC003618D6 /* display_map.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57AF545249F6DFC003618D6 /* display_map.swift */; };
+		D57AF548249F883E003618D6 /* display_tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57AF547249F883E003618D6 /* display_tab.swift */; };
+		D57AF54A24A06419003618D6 /* display_test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57AF54924A06419003618D6 /* display_test.swift */; };
 		D59C48072498D00200081B16 /* display1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59C48062498D00200081B16 /* display1.swift */; };
 		D59C48092498DBD200081B16 /* Login_text.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59C48082498DBD200081B16 /* Login_text.swift */; };
 		D5A12EBE249C877E00254EE8 /* MapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A12EBD249C877E00254EE8 /* MapTest.swift */; };
@@ -23,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D57AF545249F6DFC003618D6 /* display_map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = display_map.swift; sourceTree = "<group>"; };
+		D57AF547249F883E003618D6 /* display_tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = display_tab.swift; sourceTree = "<group>"; };
+		D57AF54924A06419003618D6 /* display_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = display_test.swift; sourceTree = "<group>"; };
 		D59C48062498D00200081B16 /* display1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = display1.swift; sourceTree = "<group>"; };
 		D59C48082498DBD200081B16 /* Login_text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_text.swift; sourceTree = "<group>"; };
 		D5A12EBD249C877E00254EE8 /* MapTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTest.swift; sourceTree = "<group>"; };
@@ -84,6 +90,9 @@
 				D59C48082498DBD200081B16 /* Login_text.swift */,
 				D5A12EBD249C877E00254EE8 /* MapTest.swift */,
 				D5A12EBF249C9CC500254EE8 /* LocationObserver.swift */,
+				D57AF545249F6DFC003618D6 /* display_map.swift */,
+				D57AF547249F883E003618D6 /* display_tab.swift */,
+				D57AF54924A06419003618D6 /* display_test.swift */,
 			);
 			path = group_work;
 			sourceTree = "<group>";
@@ -131,7 +140,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D5A671AA249898EC00B554BE /* Build configuration list for PBXProject "group_work" */;
+			buildConfigurationList = D5A671AA249898EC00B554BE /* Build configuration list for PBXProject "group_work3" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -171,10 +180,13 @@
 				D59C48092498DBD200081B16 /* Login_text.swift in Sources */,
 				D5A671CA249899DD00B554BE /* File.swift in Sources */,
 				D5A671B3249898EC00B554BE /* AppDelegate.swift in Sources */,
+				D57AF548249F883E003618D6 /* display_tab.swift in Sources */,
 				D5A671B5249898EC00B554BE /* SceneDelegate.swift in Sources */,
 				D5A671BA249898EC00B554BE /* ContentView.swift in Sources */,
 				D5A12EC0249C9CC500254EE8 /* LocationObserver.swift in Sources */,
+				D57AF546249F6DFC003618D6 /* display_map.swift in Sources */,
 				D5A671B8249898EC00B554BE /* group_work.xcdatamodeld in Sources */,
+				D57AF54A24A06419003618D6 /* display_test.swift in Sources */,
 				D5A671CC2498CE3400B554BE /* login_screen.swift in Sources */,
 				D59C48072498D00200081B16 /* display1.swift in Sources */,
 			);
@@ -351,7 +363,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D5A671AA249898EC00B554BE /* Build configuration list for PBXProject "group_work" */ = {
+		D5A671AA249898EC00B554BE /* Build configuration list for PBXProject "group_work3" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D5A671C4249898EE00B554BE /* Debug */,
