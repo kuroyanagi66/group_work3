@@ -22,14 +22,28 @@ struct MapView: UIViewRepresentable {
   }
   
   func updateUIView(_ view: MKMapView, context: Context) {
+    
+    
+    let url_: URL = URL(string: "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api/get_location_api.php?name=hijiri&pass=55itolab!!")!
+    let task: URLSessionTask = URLSession.shared.dataTask(with: url_, completionHandler: {(data, response, error) in
+       
+       let user_locations = try! JSONDecoder().decode([UserLocation].self, from: data!)
+       
+         }
+       )
+    
+
+    
+    
 
     let coordinate = self.locationObserver.location.coordinate
-    let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+    let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     let region = MKCoordinateRegion(center: coordinate, span: span)
     view.setRegion(region, animated: true)
     view.removeAnnotations(view.annotations)
     
     let annotation = MKPointAnnotation()
+    annotation.title = "I"
     annotation.coordinate = coordinate
     view.addAnnotation(annotation)
     
@@ -112,3 +126,16 @@ struct MapTest_Previews: PreviewProvider {
     }
 }
 */
+
+
+struct UserLocation: Decodable, Identifiable {
+    var id: String
+    var user_name: String
+    var message: String
+    var time: String
+    var x_coordinate: String
+    var y_coordinate: String
+    
+   // var login: String
+    //var user_name: String
+}

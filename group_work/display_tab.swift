@@ -11,7 +11,7 @@ import MapKit
 
 struct display_tab: View {
     @EnvironmentObject var login_text: Login_text
-   // @ObservedObject var locationObserver = LocationObserver()
+    //@ObservedObject var locationObserver = LocationObserver()
     
     
     var body: some View {

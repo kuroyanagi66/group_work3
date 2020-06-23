@@ -13,7 +13,7 @@ class FollowingUserStore: ObservableObject {
     func load(moji : String) {
        // let url_text = self.login_text.lonin_text1
         //let url = URL(string: moji)!
-        let url = URL(string: "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/talk_api.php?name=hijiri&pass=55itolab!!")!
+        let url = URL(string: "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api/get_message_api.php?name=hijiri&pass=55itolab!!")!
         //http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/test.php?name=hijiri&pass=55itolab!!
         //http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api.php?name=kuroyanagi&pass=55itolab!!
         //https://api.github.com/users/maoyama/following
@@ -40,6 +40,7 @@ struct User: Decodable, Identifiable {
     var id: String
     var user_name: String
     var message: String
+    var time: String
     
    // var login: String
     //var user_name: String

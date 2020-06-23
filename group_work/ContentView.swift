@@ -16,7 +16,7 @@ struct ContentView: View {
     @State var inputID: String = ""
     @State var inputPassword: String = ""
     @State var id_text: String =
-    "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/login_api.php?name="
+    "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api/login_api.php?name="
 
     @State var pass_text: String = "&pass="
     @State var login_info: String = ""

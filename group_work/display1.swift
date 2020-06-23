@@ -25,7 +25,7 @@ struct display1: View {
     @ObservedObject var store = FollowingUserStore(moji2:Login_text().lonin_text1) //Login_text().lonin_text1)
     @State var inputText: String  = ""
     @State var isActiveSubView = false
-    @State var sousinn1 = "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/send_api.php?user_id="
+    @State var sousinn1 = "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api/send_message_api.php?user_id="
     
     @State var sousinn2 = "&pass=55itolab!!&message="
     @State var sousinn3 = "&parent_id=0"
@@ -33,19 +33,23 @@ struct display1: View {
    @ObservedObject var locationObserver = LocationObserver()
     @State private var selection = 1
 
-    
+  @State var user_names_list: [String] = []
+
     var body: some View {
         
       
         NavigationView{
             
-        
+      
         VStack{
+            
+         
     
 //Text(self.login_text.lonin_text1)
 //Text(self.login_text.login_id_kioku)
            // Text(self.login_text.lonin_text1)
-        
+            
+            
          List(store.users) { (user) in
             //ForEach(store.users){ user in
              // UserRow(user: user)
@@ -58,26 +62,48 @@ struct display1: View {
                 }else{
                     UserRow2(user: user)
                 }
+            
+            if self.isActiveSubView == true{
+                Text("add")
+                
+            }
             }
             
+            
+            ///
+            ForEach(store.users) { (user) in
+               //ForEach(store.users){ user in
+                // UserRow(user: user)
+                   
+                   if user.user_name != self.login_text.lonin_text1{
+                 //   if user.user_name != "kuroyanagi"{
+                       
+                   
+                       
+                   }
+         
+               }
+            ///
+            
+            
             HStack{
-                
+                /*
                 NavigationLink(destination: display_test() ,isActive: $isActiveSubView ) {
                                                EmptyView().environmentObject(self.login_text)
-                               }
+                               }*/
              /*   .sheet(isPresented: $isActiveSubView) {
                                 MapView(coordinate: self.locationObserver.location.coordinate)
                                 //.environmentObject(self.login_text)
                                }
                 */
                 
-                
+                /*
                    Button(action:{
                     self.isActiveSubView.toggle()
                    }){
                     Image(systemName: "map").resizable()
                     .frame(width: 20.0, height: 20.0, alignment: .leading)
-                }
+                }*/
                 
                 Button(action:{
 
@@ -148,6 +174,7 @@ struct UserRow: View {
            // Spacer()
             //Text(user.user_name).font(.system(size: 20))
             //Spacer()
+           
              Text(user.user_name).font(.system(size: 20))
             HStack{
                 
@@ -171,6 +198,7 @@ struct UserRow: View {
                 }
                 Spacer()
             }
+             Text(user.time).font(.system(size: 15))
             }
         }
     }
@@ -207,7 +235,9 @@ struct UserRow: View {
     
               //  Spacer()
             }
+            Text(user.time).font(.system(size: 15))
             }
+        
         }
     }
     
