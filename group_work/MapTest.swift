@@ -13,7 +13,11 @@ import MapKit
 struct MapView: UIViewRepresentable {
   var coordinate: CLLocationCoordinate2D
     @ObservedObject var locationObserver = LocationObserver()
+    @State var user_locations: [UserLocation] = []
+    @State var x = 34.90408631044897
+    @State var y = 138.1713600122716
   
+    
   func makeUIView(context: Context) -> MKMapView {
   
  
@@ -23,16 +27,45 @@ struct MapView: UIViewRepresentable {
   
   func updateUIView(_ view: MKMapView, context: Context) {
     
-    
+  
     let url_: URL = URL(string: "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api/get_location_api.php?name=hijiri&pass=55itolab!!")!
     let task: URLSessionTask = URLSession.shared.dataTask(with: url_, completionHandler: {(data, response, error) in
        
-       let user_locations = try! JSONDecoder().decode([UserLocation].self, from: data!)
-       
-         }
-       )
-    
+        self.user_locations = try! JSONDecoder().decode([UserLocation].self, from: data!)
 
+    }
+       )
+ 
+    let num = self.user_locations.count
+    var count = 0
+    
+    print(num)
+    while count<num{
+        
+        //let coordinate =
+           // CLLocationCoordinate2DMake(34.90408631044897, 138.1713600122716)
+       
+   
+        
+        let aaa = Double(self.user_locations[count].x_coordinate) ?? 0.0
+        
+         let bbb = Double(self.user_locations[count].y_coordinate) ?? 0.0
+        let coordinate =  CLLocationCoordinate2DMake(34.954049304346465, 137.19134978634974)
+        
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let region = MKCoordinateRegion(center: coordinate, span: span)
+        view.setRegion(region, animated: true)
+        view.removeAnnotations(view.annotations)
+        
+        let annotation = MKPointAnnotation()
+        annotation.title = "2"
+        annotation.coordinate = coordinate
+        view.addAnnotation(annotation)
+        
+        
+        count = count + 1
+    }
     
     
 
