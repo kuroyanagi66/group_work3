@@ -25,7 +25,10 @@ struct display_tab: View {
                 
             }
             //MapView(coordinate: self.locationObserver.location.coordinate).tabItem{Text("MAP")}
-            MapView(coordinate: CLLocationCoordinate2DMake(34.90408631044897, 138.1713600122716))
+            MapView(coordinate:
+              
+                CLLocationCoordinate2DMake(34.90408631044897, 138.1713600122716)
+            )
                 .tabItem{
                     VStack{
                         Image(systemName: "map").resizable()

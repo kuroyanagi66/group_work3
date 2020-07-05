@@ -53,31 +53,37 @@ struct File_Previews: PreviewProvider {
 }
 
 
-
-/*
 class FollowingUserStore2: ObservableObject {
-    @Published var login_user: [LoginUser] = []
+    @Published var locations: [UserLocation] = []
     @EnvironmentObject var login_text: Login_text
     
-
     init() {
         load()
     }
-
     func load() {
-        let url_text = self.login_text.lonin_url1
-        let url = URL(string: url_text)!
-            //let url = URL(string: "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/talk_api.php?name=hijiri&pass=55itolab!!")!
 
+        let url = URL(string: "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api/get_location_api.php?name=hijiri&pass=55itolab!!")!
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
-                self.login_user = try!
+                self.locations = try!
                     
-                    JSONDecoder().decode([LoginUser].self, from: data!)
+                    JSONDecoder().decode([UserLocation].self, from: data!)
             }
         }.resume()
+        
 
     }
-}*/
+}
 
+struct UserLocation: Decodable, Identifiable {
+    var id: String
+    var user_name: String
+    //var message: String
+    var time: String
+    var x_coordinate: String
+    var y_coordinate: String
+    
+   // var login: String
+    //var user_name: String
+}

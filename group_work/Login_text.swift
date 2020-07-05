@@ -15,5 +15,7 @@ class Login_text : ObservableObject {
   //  @Published var lonin_url1 = "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/talk_api.php?name=hijiri&pass=55itolab!!"
     
     @Published var login_id_kioku = String()
+    @Published var login_user_name = String()
     @Published var keido = Float()
+    @Published var location_list: [UserLocation] = []
 }

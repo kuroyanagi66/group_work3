@@ -11,13 +11,29 @@ import MapKit
 
 struct display_map: View {
      @ObservedObject var locationObserver = LocationObserver()
+     @State var user_locations: [User] = []
+     @ObservedObject var store2 = FollowingUserStore2()
+     @EnvironmentObject var login_text: Login_text
+   
+    
     
     var body: some View {
+        
+        
         VStack{
-        Text("Clutch Map")
-           //  MapView(coordinate:CLLocationCoordinate2DMake(34.90408631044897, 138.1713600122716))
+            
+            
+           
+  
+            List(store2.locations) { (user) in
+                    
+                Text(user.x_coordinate)
+                                   
+            }
+            
+
         MapView(coordinate: self.locationObserver.location.coordinate)
-    }
+        }
     }
 }
 
@@ -27,3 +43,5 @@ struct display_map_Previews: PreviewProvider {
         display_map().environmentObject(login_text)
     }
 }
+
+

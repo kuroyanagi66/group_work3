@@ -85,7 +85,6 @@
 				D5A671B6249898EC00B554BE /* group_work.xcdatamodeld */,
 				D5A671BD249898EE00B554BE /* Preview Content */,
 				D5A671C9249899DD00B554BE /* File.swift */,
-				D5A671CB2498CE3400B554BE /* login_screen.swift */,
 				D59C48062498D00200081B16 /* display1.swift */,
 				D59C48082498DBD200081B16 /* Login_text.swift */,
 				D5A12EBD249C877E00254EE8 /* MapTest.swift */,
@@ -100,6 +99,7 @@
 		D5A671BD249898EE00B554BE /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				D5A671CB2498CE3400B554BE /* login_screen.swift */,
 				D5A671BE249898EE00B554BE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";

@@ -128,7 +128,7 @@ struct ContentView: View {
                                 
                                 print(self.login_user1[0].user_id)
                                 self.login_text.login_id_kioku = self.login_user1[0].user_id
-                            
+                                self.login_text.login_user_name = self.login_user1[0].user_name
                             self.isActiveSubView.toggle()
                                 
                                 
