@@ -76,6 +76,31 @@ class FollowingUserStore2: ObservableObject {
     }
 }
 
+
+class FollowingUserStore3: ObservableObject {
+    
+    @EnvironmentObject var login_text: Login_text
+    
+    init() {
+        load()
+    }
+    func load() {
+
+        let url = URL(string: "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api/send_location_api.php?user_id=2&pass=55itolab!!&x_coordinate=55&y_coordinate=55")!
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            /*
+            DispatchQueue.main.async {
+                self.locations = try!
+                    
+                    JSONDecoder().decode([UserLocation].self, from: data!)
+            }*/
+        }.resume()
+        
+
+    }
+}
+
 struct UserLocation: Decodable, Identifiable {
     var id: String
     var user_name: String
