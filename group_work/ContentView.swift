@@ -29,6 +29,7 @@ struct ContentView: View {
     @State var encodeUrlString = "s"
    // @ObservedObject var locationObserver = LocationObserver()
     @State var login_user1: [LoginUser] = []
+    @State var hantei = false
 
    // @ObservedObject var user_login = FollowingUserStore2()
     
@@ -39,14 +40,37 @@ struct ContentView: View {
             
             NavigationView {
                 
-                
+       
                 
                 
                 VStack(alignment: .center) {
                     
+                    
+                    /*
+                    NavigationLink(destination: //display1().environmentObject(login_text
+                                                 display_tab().environmentObject(login_text)
+                        ,isActive: $hantei
+                                             ) {
+                                                EmptyView()
+                    }.onAppear(perform: {
+                        
+                        
+                        if self.inputID != "" {
+                            if self.login_text.kousin == true{
+                                
+                                self.hantei = true
+                                self.login_text.kousin = false
+                                
+                            }
+                        }
+                                                 // do something
+                                                // self.login_text.kousin = false
+                                             })
+           */
                  
                     
                     Text("Clutch")
+                        
                         .font(.system(size: 45
                                       )).fontWeight(.heavy)
                     Image(systemName: "ellipses.bubble").resizable()
@@ -70,6 +94,7 @@ struct ContentView: View {
 
                     }
                     .frame(height: 200)
+          
 
                     NavigationLink(destination: //display1().environmentObject(login_text)
                         display_tab().environmentObject(login_text)

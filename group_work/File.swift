@@ -80,13 +80,24 @@ class FollowingUserStore2: ObservableObject {
 class FollowingUserStore3: ObservableObject {
     
     @EnvironmentObject var login_text: Login_text
+    @ObservedObject var locationObserver = LocationObserver()
     
     init() {
         load()
     }
     func load() {
 
-        let url = URL(string: "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api/send_location_api.php?user_id=2&pass=55itolab!!&x_coordinate=55&y_coordinate=55")!
+        let a = String(self.locationObserver.location.coordinate.latitude)
+        let b = String(self.locationObserver.location.coordinate.longitude)
+        
+        
+        //http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api/send_location_api.php?user_id=2&pass=55itolab!!&x_coordinate=55&y_coordinate=55
+        
+        let request = " http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api/send_location_api.php?user_id="
+            + login_text.login_id_kioku + "&pass=55itolab!!&x_coordinate=" + a + "&y_coordinate="
+        + b
+         
+        let url = URL(string: request)!
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             /*

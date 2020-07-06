@@ -16,6 +16,7 @@ import Foundation
 import CoreLocation
 import Combine
 
+
 //import KeyboardObserving
 
 struct display1: View {
@@ -30,62 +31,30 @@ struct display1: View {
     @State var sousinn2 = "&pass=55itolab!!&message="
     @State var sousinn3 = "&parent_id=0"
     @State var sousinn_text = ""
-   @ObservedObject var locationObserver = LocationObserver()
+  // @ObservedObject var locationObserver = LocationObserver()
     @State private var selection = 1
 
-  @State var user_names_list: [String] = []
+   @State var user_names_list: [String] = []
+    @Environment(\.presentationMode) var presentation
+    
+    
 
     var body: some View {
         
       
         NavigationView{
             
-      
+           
         VStack{
             
+         /*
+            Text("d").onAppear(perform: {
+                // do something
+               // self.login_text.kousin = false
+            })
+            
+            */
          
-    
-//Text(self.login_text.lonin_text1)
-//Text(self.login_text.login_id_kioku)
-           // Text(self.login_text.lonin_text1)
-            
-            
-         List(store.users) { (user) in
-            //ForEach(store.users){ user in
-             // UserRow(user: user)
-                
-                if user.user_name != self.login_text.lonin_text1{
-              //   if user.user_name != "kuroyanagi"{
-                    
-                    UserRow(user: user)
-                    
-                }else{
-                    UserRow2(user: user)
-                }
-            
-            if self.isActiveSubView == true{
-                Text("add")
-                
-            }
-            }
-            
-            
-            ///
-            ForEach(store.users) { (user) in
-               //ForEach(store.users){ user in
-                // UserRow(user: user)
-                   
-                   if user.user_name != self.login_text.lonin_text1{
-                 //   if user.user_name != "kuroyanagi"{
-                       
-                   
-                       
-                   }
-         
-               }
-            ///
-            
-            
             HStack{
                 /*
                 NavigationLink(destination: display_test() ,isActive: $isActiveSubView ) {
@@ -105,14 +74,32 @@ struct display1: View {
                     .frame(width: 20.0, height: 20.0, alignment: .leading)
                 }*/
                 
+                
+          
+                
+                
                 Button(action:{
 
-
-
+                    let aaa = FollowingUserStore(moji2:Login_text().lonin_text1)
+                    print(aaa)
+                   // print(aaa.users[0].user_name)
+                   
+                    
+                    
+                 
+                   // self.login_text.kousin = true
+                  
+                    print("繊維")
+                  //  self.presentation.wrappedValue.dismiss()
+                   
+              
+                    
                             }){
                              Image(systemName: "arrow.clockwise.circle").resizable()
                              .frame(width: 20.0, height: 20.0, alignment: .leading)
                          }
+                
+                
                 
             TextField("message", text: $inputText)
             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -150,6 +137,45 @@ struct display1: View {
             }
             }
          //   Text(self.sousinn_text)
+    
+//Text(self.login_text.lonin_text1)
+//Text(self.login_text.login_id_kioku)
+           // Text(self.login_text.lonin_text1)
+            
+            
+         List(store.users) { (user) in
+            //ForEach(store.users){ user in
+             // UserRow(user: user)
+                
+                if user.user_name != self.login_text.lonin_text1{
+              //   if user.user_name != "kuroyanagi"{
+                    
+                    UserRow(user: user)
+                    
+                }else{
+                    UserRow2(user: user)
+                }
+            
+        
+            }
+            
+            
+            ///
+            ForEach(store.users) { (user) in
+               //ForEach(store.users){ user in
+                // UserRow(user: user)
+                   
+                   if user.user_name != self.login_text.lonin_text1{
+                 //   if user.user_name != "kuroyanagi"{
+                       
+                   
+                       
+                   }
+         
+               }
+            ///
+            
+            
             
                     
         }.navigationBarTitle("ss")
@@ -249,6 +275,9 @@ struct display1_Previews: PreviewProvider {
         display1().environmentObject(login_text)
     }
 }
+
+
+
 
 
 //最新
