@@ -7,6 +7,9 @@
 //
 
 //http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/send_api.php?user_id=2&pass=55itolab!!&message=test&parent_id=0
+
+
+//http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api/userimage_view_api.php?key=1324576890&id=7
 //送信用↑↑
 
 //
@@ -23,12 +26,15 @@ struct display1: View {
 
     
     @EnvironmentObject var login_text: Login_text
-    @ObservedObject var store = FollowingUserStore(moji2:Login_text().lonin_text1) //Login_text().lonin_text1)
+    @ObservedObject var store = FollowingUserStore(moji2:Login_text().lonin_text1)
+    
+    //Login_text().lonin_text1)
     @State var inputText: String  = ""
     @State var isActiveSubView = false
     @State var sousinn1 = "http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api/send_message_api.php?user_id="
     
-    @State var sousinn2 = "&pass=55itolab!!&message="
+    @State var sousinn2 = "&pass="
+    @State var sousinn2_2 = "&message="
     @State var sousinn3 = "&parent_id=0"
     @State var sousinn_text = ""
   // @ObservedObject var locationObserver = LocationObserver()
@@ -46,6 +52,8 @@ struct display1: View {
             
            
         VStack{
+            
+            
             
          /*
             Text("d").onAppear(perform: {
@@ -108,7 +116,9 @@ struct display1: View {
                 Button(action:{
                     
                     self.sousinn_text = self.sousinn1
-                        + self.login_text.login_id_kioku + self.sousinn2 + self.inputText + self.sousinn3
+                        + self.login_text.login_id_kioku + self.sousinn2 +
+                        self.login_text.login_pass + self.sousinn2_2
+                        + self.inputText + self.sousinn3
                     
                     
                     
@@ -142,7 +152,7 @@ struct display1: View {
 //Text(self.login_text.login_id_kioku)
            // Text(self.login_text.lonin_text1)
             
-            
+                        
          List(store.users) { (user) in
             //ForEach(store.users){ user in
              // UserRow(user: user)
@@ -159,7 +169,7 @@ struct display1: View {
         
             }
             
-            
+           
             ///
             ForEach(store.users) { (user) in
                //ForEach(store.users){ user in
@@ -174,6 +184,8 @@ struct display1: View {
          
                }
             ///
+            
+          
             
             
             
@@ -191,6 +203,7 @@ struct display1: View {
 
     }
 struct UserRow: View {
+    @EnvironmentObject var login_text: Login_text
     var user: User
     var body: some View {
         //Text(user.login)
@@ -207,9 +220,15 @@ struct UserRow: View {
            // Spacer()
                 
             
-                   
-                Image(systemName: "person.crop.circle").resizable()
+                
+                if user.user_name == "hijiri"{
+                    Image("image_1").resizable()
+                                                      .frame(width: 35.0, height: 35.0, alignment: .leading)
+                }
+                else{
+                Image("image_2").resizable()
                                    .frame(width: 35.0, height: 35.0, alignment: .leading)
+                }
                 
                 
                 VStack{
@@ -230,6 +249,7 @@ struct UserRow: View {
     }
     
     struct UserRow2: View {
+        @EnvironmentObject var login_text: Login_text
     var user: User
     var body: some View {
         //Text(user.login)
@@ -255,8 +275,15 @@ struct UserRow: View {
             }
                
                 
-                Image(systemName: "person.crop.circle").resizable()
+                
+                if user.user_name == "hijiri"{
+                    Image("image_1").resizable()
+                                                      .frame(width: 35.0, height: 35.0, alignment: .leading)
+                }
+                else{
+                Image("image_2").resizable()
                                                   .frame(width: 35.0, height: 35.0, alignment: .leading)
+                }
                     
     
               //  Spacer()

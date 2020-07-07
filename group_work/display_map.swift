@@ -24,16 +24,13 @@ struct display_map: View {
             
             
            
-  
-            List(store2.locations) { (user) in
-                    
-                Text(user.x_coordinate)
+  Text("Hello")
                                    
             }
             
 
-        MapView(coordinate: self.locationObserver.location.coordinate)
-        }
+       // MapView(coordinate: self.locationObserver.location.coordinate)
+        
     }
 }
 

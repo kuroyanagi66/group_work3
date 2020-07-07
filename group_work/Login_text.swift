@@ -17,6 +17,7 @@ class Login_text : ObservableObject {
     @Published var login_id_kioku = String()
     @Published var login_user_name = String()
     @Published var keido = Float()
+    @Published var login_pass = String()
     @Published var location_list: [UserLocation] = []
     @Published var kousin = false
 }

@@ -30,6 +30,7 @@ struct ContentView: View {
    // @ObservedObject var locationObserver = LocationObserver()
     @State var login_user1: [LoginUser] = []
     @State var hantei = false
+     @State var isActiveSubView2 = false
 
    // @ObservedObject var user_login = FollowingUserStore2()
     
@@ -45,6 +46,14 @@ struct ContentView: View {
                 
                 VStack(alignment: .center) {
                     
+                
+               
+                               NavigationLink(destination:
+                                   display_test().environmentObject(login_text)
+                                                      ,isActive: $isActiveSubView2
+                                                                           ) {
+                                       EmptyView()
+                                                  }
                     
                     /*
                     NavigationLink(destination: //display1().environmentObject(login_text
@@ -69,7 +78,7 @@ struct ContentView: View {
            */
                  
                     
-                    Text("Clutch")
+                    Text("クラッチ")
                         
                         .font(.system(size: 45
                                       )).fontWeight(.heavy)
@@ -117,7 +126,7 @@ struct ContentView: View {
                        print("Login処理")
                         self.login_info = self.id_text + self.inputID + self.pass_text + self.inputPassword
                         self.login_text.lonin_text1 = self.inputID////
-                        
+                        self.login_text.login_pass = self.inputPassword
                      
                         self.url_1 = self.login_info
                     
@@ -188,6 +197,27 @@ struct ContentView: View {
                             .cornerRadius(8)
                     }).alert(isPresented: $showingAlert) {
                         Alert(title: Text("ログイン失敗"))}
+                    
+                    
+                    Spacer()
+                    
+                    
+                    
+
+                    
+                    Button(action: {
+                       print("Sign up")
+                        self.isActiveSubView2.toggle()
+                    },
+                    label: {
+                        Text("Sign up")
+                            .fontWeight(.medium)
+                            .frame(minWidth: 160)
+                            .foregroundColor(.white)
+                            .padding(12)
+                            .background(Color.accentColor)
+                            .cornerRadius(8)
+                    })
 
                     
                     

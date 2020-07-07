@@ -41,11 +41,11 @@ struct MapView: UIViewRepresentable {
     
     
     //http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api/send_location_api.php?user_id=2&pass=55itolab!!&x_coordinate=55&y_coordinate=55
-    
+    /*
     self.request = " http://ec2-3-115-14-119.ap-northeast-1.compute.amazonaws.com/api/send_location_api.php?user_id="
         + login_text.login_id_kioku + "&pass=55itolab!!&x_coordinate=" + a + "&y_coordinate="
     + b
-    print(request)
+    print(request)*/
     /*
     let url = URL(string: request)!
    // print(url)
